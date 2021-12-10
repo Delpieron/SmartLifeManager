@@ -32,7 +32,7 @@
             <Label Content="Ustawienia" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="ustawienia"></Label>
         </Border>
         <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="2" Grid.Row="1" Margin="10">
-            <Label Content="PlaceHolder" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="placeholder"></Label>
+            <Label Content="PlaceHolder" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
         </Border>
 
     </Grid>
