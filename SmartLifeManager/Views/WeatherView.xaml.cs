@@ -1,4 +1,6 @@
-﻿namespace SmartLifeManager.Views
+﻿using System.Windows.Media;
+
+namespace SmartLifeManager.Views
 {
     /// <summary>
     /// Interaction logic for WeatherView.xaml
@@ -8,6 +10,14 @@
         public WeatherView()
         {
             InitializeComponent();
+            imageBox.Content = "\u2601";
+            imageBox.Foreground = Brushes.DarkGray;
+        }
+
+        private void test(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            imageBox.Content = "\u2600";
+            imageBox.Foreground = Brushes.Yellow;
         }
     }
 }
