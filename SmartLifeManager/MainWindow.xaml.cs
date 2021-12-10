@@ -7,6 +7,7 @@ using static SmartLifeManager.Views.BaseViewControl;
 
 namespace SmartLifeManager
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -15,6 +16,12 @@ namespace SmartLifeManager
         public MainWindow()
         {
             InitializeComponent();
+            //File.Create(@"D:\kupa.sqlite");
+
+            DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
+            allContext.CreateStructure("schedule");
+
+        }
             ChangeView(ViewType.WidgetList);
         }
 
