@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartLifeManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="SmartLifeManager" Height="600" Width="1200" Icon="/Bez-nazwy.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid x:Name="mainGrid" Background="#424242">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Height="100" Background="DarkGray" Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Lokalizacja : Zabawa 227" Grid.Row="0" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>
+                <Label Content="Ogólna Ocena Otoczenia : 89%" Grid.Row="1" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>
+            </Grid>
+            <Button x:Name="ButtonSpecialActionReturn" Grid.Column="1"                 
+                    Background="{x:Null}"
+                    Foreground="Black"
+                    BorderThickness="0"
+                    Style="{StaticResource HomeButton}"
+                    BorderBrush="{Binding Background}"
+                    Content="{StaticResource HomeIconBlack}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"
+                    Height="95" Width="95"
+                    Click="Button_Click">
+            </Button>
+        </Grid>
+        <DockPanel x:Name="MainView" Margin="10,10,10,10"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" />
     </Grid>
 </Window>
