@@ -24,7 +24,7 @@
                 <Label Content="Lokalizacja : Zabawa 227" Grid.Row="0" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>
                 <Label Content="Ogólna Ocena Otoczenia : 89%" Grid.Row="1" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>
             </Grid>
-            <Label VerticalAlignment="Center" MinWidth="100" Foreground="Black" HorizontalAlignment="Left" Margin="10,10,10,10" x:Name="ProgramLabel" Content="Zanieczyszczenie Powietrza : PM10 80 μg/m³" FontSize="30" Grid.Column="1"></Label>
+            <Button Grid.Column="1" Content="Back To List" FontSize="30" Click="Button_Click"></Button>
         </Grid>
         <DockPanel x:Name="MainView" Margin="10,10,10,10"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" />
     </Grid>

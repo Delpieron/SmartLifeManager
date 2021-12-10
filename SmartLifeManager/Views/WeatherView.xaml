@@ -8,6 +8,35 @@
       mc:Ignorable="d" >
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="imageBox" Height="200" Width="200" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"></Image>
+        <Label Content="INFORMACJE O MIEJSCU" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="test1" Content="Test 1: " Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 2: " Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 3: " Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 4: " Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 5: " Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 6: " Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Test 7: " Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="INFO" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" FontSize="20"></Label>
     </Grid>
 </SmartLifeManager:BaseViewControl>

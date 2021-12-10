@@ -15,7 +15,7 @@ namespace SmartLifeManager
         public MainWindow()
         {
             InitializeComponent();
-            ChangeView(ViewType.AirCondition);
+            ChangeView(ViewType.WidgetList);
         }
 
 
@@ -84,6 +84,11 @@ namespace SmartLifeManager
         private void Control_onViewChangeHandler(object sender, ViewTypeEventArgs e)
         {
             ChangeView(e.Type, e.TestPointCreated);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeView(ViewType.WidgetList);
         }
         #endregion
 
