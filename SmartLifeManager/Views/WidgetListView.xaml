@@ -16,24 +16,11 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="0" Grid.Row="0" Margin="10" >
-            <Label Content="Pogoda" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="pogoda"></Label>
-        </Border>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427"  Grid.Column="1" Grid.Row="0" Margin="10">
-            <Label Content="Woda" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="woda"></Label>
-        </Border>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="2" Grid.Row="0" Margin="10">
-            <Label Content="Powietrze" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="powietrze"></Label>
-        </Border>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="0" Grid.Row="1" Margin="10">
-            <Label Content="Harmonogram" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="harmonogram"></Label>
-        </Border>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="1" Grid.Row="1" Margin="10">
-            <Label Content="Ustawienia" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" MouseDoubleClick="ustawienia"></Label>
-        </Border>
-        <Border BorderThickness="10,10,0,0" CornerRadius="50" BorderBrush="#1C5905" Background="#32A427" Grid.Column="2" Grid.Row="1" Margin="10">
-            <Label Content="PlaceHolder" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-        </Border>
-
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda" Content="Pogoda" FontSize="30" Grid.Column="0" Grid.Row="0"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="woda" Content="Woda" FontSize="30" Grid.Column="1" Grid.Row="0"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Content="Powietrze" FontSize="30" Grid.Column="2" Grid.Row="0"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="harmonogram" Content="Harmonogram" FontSize="30" Grid.Column="0" Grid.Row="1"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="ustawienia" Content="Ustawienia" FontSize="30"  Grid.Column="1" Grid.Row="1"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Content="PlaceHolder" FontSize="30"  Grid.Column="2" Grid.Row="1"></Button>
     </Grid>
 </SmartLifeManager:BaseViewControl>

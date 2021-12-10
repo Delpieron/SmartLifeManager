@@ -2,8 +2,8 @@
 using SmartLifeManager.Data;
 using SmartLifeManager.Models;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SmartLifeManager.Views
 {
@@ -44,6 +44,14 @@ namespace SmartLifeManager.Views
             }
 
 
+            imageBox.Content = "\u2601";
+            imageBox.Foreground = Brushes.DarkGray;
+        }
+
+        private void test(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            imageBox.Content = "\u2600";
+            imageBox.Foreground = Brushes.Yellow;
         }
     }
 }
