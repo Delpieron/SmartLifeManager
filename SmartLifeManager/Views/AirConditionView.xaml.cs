@@ -20,7 +20,7 @@ namespace SmartLifeManager.Views
         public AirConditionView()
         {
             InitializeComponent();
-
+            LocationLabel.Content += "\n Krakow, ul. Bulwarowa";
             imageBox.Content = "\u263A";
             imageBox.Foreground = Brushes.DarkGray;
 
@@ -145,7 +145,7 @@ namespace SmartLifeManager.Views
                                     }
                                     break;
                             }
-                            LocationLabel.Content += "\n Krakow, ul. Bulwarowa";
+
                         }
 
                         finally

@@ -30,18 +30,18 @@
         <Label x:Name="PM25Text" Content="PM2.5: " Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
         <Label x:Name="NO2Text" Content="NO2: " Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
         <Label x:Name="SO2Text" Content="SO2: " Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="BenzenLabel" Content="" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="COLabel" Content="" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="PM10Label" Content="" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="PM25Label" Content="" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="NO2Label" Content="" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="SO2Label" Content="" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="BenzenDate" Content="" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="CODate" Content="" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="PM10Date" Content="" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="PM25Date" Content="" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="NO2Date" Content="" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
-        <Label x:Name="SO2Date" Content="" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="BenzenLabel" Content="2,01 µg/m³" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="COLabel" Content="850,54 mg/m³" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="PM10Label" Content="71,34 µg/m³" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="PM25Label" Content="71,11 µg/m³" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="NO2Label" Content="42,34 µg/m³" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="SO2Label" Content="8,11 µg/m³" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="BenzenDate" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="CODate" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="PM10Date" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="PM25Date" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="NO2Date" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
+        <Label x:Name="SO2Date" Content="2021-12-11 15:00:00" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
 
     </Grid>
 </SmartLifeManager:BaseViewControl>
