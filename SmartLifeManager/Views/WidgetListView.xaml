@@ -27,12 +27,12 @@
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Content="Temperatura :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label  Content="Temperatura :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="Ciśnienie :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="Wilgotność :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
-                <Label Content="10 °C" Grid.Row="0" Grid.Column="1"></Label>
-                <Label Content="970 hPa" Grid.Row="1" Grid.Column="1"></Label>
-                <Label Content="99 g/m³" Grid.Row="2" Grid.Column="1"></Label>
+                <Label x:Name="temp" Content="10 °C" Grid.Row="0" Grid.Column="1"></Label>
+                <Label x:Name="pre" Content="970 hPa" Grid.Row="1" Grid.Column="1"></Label>
+                <Label x:Name="wet" Content="99 g/m³" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
         <Button x:Name="Water" Style="{StaticResource ResourceKey=TabButton}" Click="woda"  Grid.Column="1" Grid.Row="0" FontSize="25" FontFamily="Kartika">
@@ -49,9 +49,9 @@
                 <Label Content="Stacja :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="Temp. Wody :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="Stan Wody :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
-                <Label Content="Kraków Bielany" Grid.Row="0" Grid.Column="1"></Label>
-                <Label Content="10 °C" Grid.Row="1" Grid.Column="1"></Label>
-                <Label Content="157" Grid.Row="2" Grid.Column="1"></Label>
+                <Label x:Name="sta" Content="Kraków Bielany" Grid.Row="0" Grid.Column="1"></Label>
+                <Label x:Name="wodtemp" Content="10 °C" Grid.Row="1" Grid.Column="1"></Label>
+                <Label x:Name="wodstan" Content="157" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
         <Button x:Name="Air" Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Grid.Column="2" Grid.Row="0" FontSize="25" FontFamily="Kartika">
@@ -68,9 +68,9 @@
                 <Label Content="PM10 :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="PM2,5 :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
                 <Label Content="SO2 :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
-                <Label Content="80,1 µg/m3" Grid.Row="0" Grid.Column="1"></Label>
-                <Label Content="89 µg/m3" Grid.Row="1" Grid.Column="1"></Label>
-                <Label Content="2 µg/m3" Grid.Row="2" Grid.Column="1"></Label>
+                <Label x:Name="pm10" Content="80,1 µg/m3" Grid.Row="0" Grid.Column="1"></Label>
+                <Label x:Name="pm25" Content="89 µg/m3" Grid.Row="1" Grid.Column="1"></Label>
+                <Label x:Name="so2" Content="2 µg/m3" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="harmonogram" Content="Harmonogram" FontSize="30" Grid.Column="0" Grid.Row="1"></Button>

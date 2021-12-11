@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SmartLifeManager.Data;
 using SmartLifeManager.Models;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,12 +14,14 @@ namespace SmartLifeManager.Views
     /// </summary>
     public partial class WeatherView : BaseViewControl
     {
+
         public WeatherView()
         {
             InitializeComponent();
             GetWeatherData();
         }
-
+        public delegate void onReadDelegat(string text, string text2, string text3);
+        public event onReadDelegat onSomthingRead;
         string city = UserSettings.City;
         private async Task GetWeatherData()
         {
@@ -44,6 +47,7 @@ namespace SmartLifeManager.Views
                             WetLabel.Content = weather.Wet + " g/m³";
                             TotalPrecipitationLabel.Content = weather.TotalPrecipitation + " mm/m²";
                             PressureLabel.Content = weather.Pressure + UserSettings.Pressure;
+                            onSomthingRead?.Invoke(weather.Pressure.ToString(), weather.Temperature.ToString(), weather.Wet.ToString());
                         }
                     }
                 }
@@ -53,6 +57,27 @@ namespace SmartLifeManager.Views
                 MessageBox.Show("Connection error");
             }
 
+        }
+        public Colors CalculateAirConditionColors(string pm10)
+        {
+            var value = Convert.ToDecimal(pm10);
+            if (value < 980)
+            {
+                return Colors.Orange;
+            }
+            else if (value < 1000)
+            {
+                return Colors.LightGreen;
+            }
+            else if (value < 1015)
+            {
+                return Colors.DarkGreen;
+            }
+            else if (value < 1030)
+            {
+                return Colors.Yellow;
+            }
+            return Colors.Red;
         }
     }
 }

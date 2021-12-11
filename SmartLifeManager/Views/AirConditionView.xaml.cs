@@ -14,6 +14,9 @@ namespace SmartLifeManager.Views
     /// </summary>
     public partial class AirConditionView : BaseViewControl
     {
+        public string pm10 { get; set; }
+        public string pm25 { get; set; }
+        public string so2 { get; set; }
         public AirConditionView()
         {
             InitializeComponent();
@@ -23,6 +26,8 @@ namespace SmartLifeManager.Views
 
             GetAirCondition();
         }
+        public delegate void onReadDelegat(string text, string pm25, string so2);
+        public event onReadDelegat onSomthingRead;
         public async Task GetAirCondition()
         {
             try
@@ -99,6 +104,7 @@ namespace SmartLifeManager.Views
                                         {
                                             PM10Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
                                             PM10Date.Content = item["date"];
+                                            pm10 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
                                             goto case 3;
                                         }
                                     }
@@ -110,6 +116,7 @@ namespace SmartLifeManager.Views
                                         {
                                             PM25Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
                                             PM25Date.Content = item["date"];
+                                            pm25 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
                                             goto case 4;
                                         }
                                     }
@@ -132,12 +139,14 @@ namespace SmartLifeManager.Views
                                         {
                                             SO2Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
                                             SO2Date.Content = item["date"];
+                                            so2 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
                                             break;
                                         }
                                     }
                                     break;
                             }
                             LocationLabel.Content += "\n Krakow, ul. Bulwarowa";
+
                         }
 
                         finally
@@ -158,6 +167,7 @@ namespace SmartLifeManager.Views
                         request_PM25.Dispose();
                         request_NO2.Dispose();
                         request_SO2.Dispose();
+
                     }
                 }
             }
@@ -165,10 +175,32 @@ namespace SmartLifeManager.Views
             {
                 MessageBox.Show("Connection error");
             }
+            onSomthingRead?.Invoke(pm10, pm25, so2);
         }
-        private string CalculateAirCondition(string pm10)
+        public Colors CalculateAirConditionColors(string pm10)
         {
-            var value = Convert.ToInt32(pm10);
+            var value = Convert.ToDecimal(pm10);
+            if (value < 40)
+            {
+                return Colors.DarkGreen;
+            }
+            else if (value < 70)
+            {
+                return Colors.LightGreen;
+            }
+            else if (value < 100)
+            {
+                return Colors.Yellow;
+            }
+            else if (value < 140)
+            {
+                return Colors.Orange;
+            }
+            return Colors.Red;
+        }
+        public string CalculateAirCondition(string pm10)
+        {
+            var value = Convert.ToDecimal(pm10);
             if (value < 40)
             {
                 return "Bardzo dobry";

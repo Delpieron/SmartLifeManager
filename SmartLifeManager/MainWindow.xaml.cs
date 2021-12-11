@@ -15,20 +15,70 @@ namespace SmartLifeManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        private AirConditionView air;
+        private WaterConditionView water;
+        private WeatherView weather;
+        public List<(Style, string, string, string, Widgets)> WidgetsStyles = new List<(Style, string, string, string, Widgets)>();
+        public List<(Dictionary<Widgets, Colors>, string, string, string)> colors = new List<(Dictionary<Widgets, Colors>, string, string, string)>();
         public MainWindow()
         {
             this.DataContext = this;
             InitializeComponent();
+            this.IsEnabled = false;
 
             DBAllContext allContext = new DBAllContext(AppDomain.CurrentDomain.BaseDirectory + "smartLifeDB.db");
             var a = allContext.AddTreeElement(new ScheduleModel { Event = "event", RainfallSum = "rain", Wet = "wet", WindDirection = "direction", WindSpeed = "speed", Pressure = "pressure", Temperature = "temperature", ExecutionTime = DateTime.Now });
             var b = allContext.GetElements();
             ChangeView(ViewType.WidgetList);
-
-            SetStyle(new List<Colors> { Colors.Yellow, Colors.Orange, Colors.Red });
+            air = new AirConditionView();
+            air.onSomthingRead += Air_onSomthingRead;
+            water = new WaterConditionView();
+            water.onSomthingRead += Water_onSomthingRead;
+            weather = new WeatherView();
+            weather.onSomthingRead += Weather_onSomthingRead;
         }
+
+        private void Weather_onSomthingRead(string text, string text2, string text3)
+        {
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
+            a.Add(Widgets.Weather, weather.CalculateAirConditionColors(text));
+            (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
+            colors.Add(c);
+            if (colors.Count == 3)
+            {
+                this.IsEnabled = true;
+                SetStyle(colors);
+            }
+        }
+
+        private void Water_onSomthingRead(string text, string text2, string text3)
+        {
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
+            a.Add(Widgets.Water, water.CalculateAirConditionColors(text));
+            (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
+            colors.Add(c);
+            if (colors.Count == 3)
+            {
+                this.IsEnabled = true;
+                SetStyle(colors);
+            }
+        }
+
+        private void Air_onSomthingRead(string text, string text2, string text3)
+        {
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
+            a.Add(Widgets.Air, air.CalculateAirConditionColors(text));
+            (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
+            colors.Add(c);
+            if (colors.Count == 3)
+            {
+                this.IsEnabled = true;
+                SetStyle(colors);
+            }
+        }
+
         public Style testowystyl { get; set; }
-        public List<Style> WidgetsStyles = new List<Style>();
+
 
         #region ViewManager
         BaseViewControl currentView = null;
@@ -84,7 +134,7 @@ namespace SmartLifeManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChangeView(ViewType.WidgetList);
+            ChangeView(ViewType.Empty);
         }
 
         private void openLocalization(object sender, RoutedEventArgs e)
@@ -94,30 +144,35 @@ namespace SmartLifeManager
         }
         #endregion
         //weather water air
-        private void SetStyle(List<Colors> colors)
+        private void SetStyle(List<(Dictionary<Widgets, Colors>, string, string, string)> colors)
         {
+
             foreach (var item in colors)
             {
-                switch (item)
+                foreach (var item2 in item.Item1)
                 {
-                    case Colors.DarkGreen:
-                        WidgetsStyles.Add((Style)Application.Current.MainWindow.TryFindResource("DarkGreen"));
-                        break;
-                    case Colors.LightGreen:
-                        WidgetsStyles.Add((Style)Application.Current.MainWindow.TryFindResource("LightGreen"));
-                        break;
-                    case Colors.Yellow:
-                        WidgetsStyles.Add((Style)Application.Current.MainWindow.TryFindResource("Yellow"));
-                        break;
-                    case Colors.Orange:
-                        WidgetsStyles.Add((Style)Application.Current.MainWindow.TryFindResource("Orange"));
-                        break;
-                    case Colors.Red:
-                        WidgetsStyles.Add((Style)Application.Current.MainWindow.TryFindResource("Red"));
-                        break;
-                    default:
-                        break;
+                    switch (item2.Value)
+                    {
+                        case Colors.DarkGreen:
+                            WidgetsStyles.Add(((Style)Application.Current.MainWindow.TryFindResource("DarkGreen"), item.Item2, item.Item3, item.Item4, item2.Key));
+                            break;
+                        case Colors.LightGreen:
+                            WidgetsStyles.Add(((Style)Application.Current.MainWindow.TryFindResource("LightGreen"), item.Item2, item.Item3, item.Item4, item2.Key));
+                            break;
+                        case Colors.Yellow:
+                            WidgetsStyles.Add(((Style)Application.Current.MainWindow.TryFindResource("Yellow"), item.Item2, item.Item3, item.Item4, item2.Key));
+                            break;
+                        case Colors.Orange:
+                            WidgetsStyles.Add(((Style)Application.Current.MainWindow.TryFindResource("Orange"), item.Item2, item.Item3, item.Item4, item2.Key));
+                            break;
+                        case Colors.Red:
+                            WidgetsStyles.Add(((Style)Application.Current.MainWindow.TryFindResource("Red"), item.Item2, item.Item3, item.Item4, item2.Key));
+                            break;
+                        default:
+                            break;
+                    }
                 }
+
             }
             ChangeView(ViewType.Empty);
         }

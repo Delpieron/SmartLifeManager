@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SmartLifeManager.Data;
 using SmartLifeManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -22,6 +23,8 @@ namespace SmartLifeManager.Views
             imageBox.Foreground = Brushes.DarkGray;
             GetWaterCondition();
         }
+        public delegate void onReadDelegat(string text, string text2, string text3);
+        public event onReadDelegat onSomthingRead;
         public async Task GetWaterCondition()
         {
             try
@@ -44,6 +47,7 @@ namespace SmartLifeManager.Views
                             StatusDateTimeLabel.Content = selectedWater.StatusDateTime;
                             WaterTemperatureLabel.Content = (selectedWater.WaterTemperature == null) ? "brak" : selectedWater.WaterTemperature + UserSettings.TemperatureUnit;
                             IcePhenomenLabel.Content = (selectedWater.IcePhenomen == "0") ? "brak" : selectedWater.IcePhenomen;
+                            onSomthingRead?.Invoke(selectedWater.WaterStatus, selectedWater.WaterTemperature, selectedWater.Station);
                         }
                     }
                 }
@@ -53,6 +57,28 @@ namespace SmartLifeManager.Views
                 MessageBox.Show("Connection error");
             }
 
+        }
+        public Colors CalculateAirConditionColors(string pm10)
+        {
+            var value = Convert.ToDecimal(pm10);
+            if (value > 270)
+            {
+                return Colors.Red;
+            }
+            else if (value > 220)
+            {
+                return Colors.Orange;
+            }
+            else if (value > 150)
+            {
+                return Colors.Yellow;
+            }
+            else if (value > 120)
+            {
+                return Colors.DarkGreen;
+            }
+            else
+                return Colors.LightGreen;
         }
     }
 }
