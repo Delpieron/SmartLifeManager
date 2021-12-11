@@ -16,7 +16,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda"  Grid.Column="0" Grid.Row="0" FontSize="25" FontFamily="Kartika">
+        <Button x:Name="Weather" Style="{StaticResource ResourceKey=TabButton}" Click="pogoda"  Grid.Column="0" Grid.Row="0" FontSize="25" FontFamily="Kartika">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -35,7 +35,7 @@
                 <Label Content="99 g/m³" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="woda"  Grid.Column="1" Grid.Row="0" FontSize="25" FontFamily="Kartika">
+        <Button x:Name="Water" Style="{StaticResource ResourceKey=TabButton}" Click="woda"  Grid.Column="1" Grid.Row="0" FontSize="25" FontFamily="Kartika">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -54,7 +54,7 @@
                 <Label Content="157" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Grid.Column="2" Grid.Row="0" FontSize="25" FontFamily="Kartika">
+        <Button x:Name="Air" Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Grid.Column="2" Grid.Row="0" FontSize="25" FontFamily="Kartika">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -75,6 +75,6 @@
         </Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="harmonogram" Content="Harmonogram" FontSize="30" Grid.Column="0" Grid.Row="1"></Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="ustawienia" Content="Ustawienia" FontSize="30"  Grid.Column="1" Grid.Row="1"></Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Content="Podłączone urządzenia" FontSize="30"  Grid.Column="2" Grid.Row="1"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="connectedDevices" Content="Podłączone urządzenia" FontSize="30"  Grid.Column="2" Grid.Row="1"></Button>
     </Grid>
 </SmartLifeManager:BaseViewControl>

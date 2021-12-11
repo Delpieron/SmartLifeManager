@@ -3,14 +3,14 @@
 namespace SmartLifeManager.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsView.xaml
+    /// Interaction logic for ConnectedDevicesView.xaml
     /// </summary>
-    public partial class SettingsView : BaseViewControl
+    public partial class ConnectedDevicesView : BaseViewControl
     {
-        public SettingsView()
+        public ConnectedDevicesView()
         {
             InitializeComponent();
-            imageBox.Content = "\u2699";
+            imageBox.Content = "\u26CA";
             imageBox.Foreground = Brushes.Gray;
         }
     }

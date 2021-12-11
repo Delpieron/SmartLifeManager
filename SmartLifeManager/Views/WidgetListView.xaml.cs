@@ -1,4 +1,7 @@
-﻿namespace SmartLifeManager.Views
+﻿using System.Collections.Generic;
+using System.Windows;
+
+namespace SmartLifeManager.Views
 {
     /// <summary>
     /// Interaction logic for WidgetListView.xaml
@@ -9,7 +12,13 @@
         {
             InitializeComponent();
         }
-
+        public WidgetListView(List<Style> style)
+        {
+            InitializeComponent();
+            Weather.Style = style[0];
+            Water.Style = style[1];
+            Air.Style = style[2];
+        }
 
         private void woda(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -34,6 +43,11 @@
         private void pogoda(object sender, System.Windows.RoutedEventArgs e)
         {
             onViewChange(ViewType.Weather);
+        }
+
+        private void connectedDevices(object sender, System.Windows.RoutedEventArgs e)
+        {
+            onViewChange(ViewType.ConnectedDevices);
         }
     }
 }

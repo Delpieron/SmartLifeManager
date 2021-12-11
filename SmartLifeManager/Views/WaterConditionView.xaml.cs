@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SmartLifeManager.Data;
 using SmartLifeManager.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace SmartLifeManager.Views
                             RiverLabel.Content = selectedWater.River;
                             WaterStatusLabel.Content = selectedWater.WaterStatus;
                             StatusDateTimeLabel.Content = selectedWater.StatusDateTime;
-                            WaterTemperatureLabel.Content = (selectedWater.WaterTemperature == null) ? "brak" : selectedWater.WaterTemperature + " °C";
+                            WaterTemperatureLabel.Content = (selectedWater.WaterTemperature == null) ? "brak" : selectedWater.WaterTemperature + UserSettings.TemperatureUnit;
                             IcePhenomenLabel.Content = (selectedWater.IcePhenomen == "0") ? "brak" : selectedWater.IcePhenomen;
                         }
                     }

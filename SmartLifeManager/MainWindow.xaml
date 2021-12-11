@@ -21,8 +21,9 @@
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
                 </Grid.RowDefinitions>
+
                 <Button HorizontalAlignment="Left" Style="{StaticResource TransparencyButton}" Content="Lokalizacja : Zabawa 227" Grid.Row="0" Foreground="Black" VerticalAlignment="Center" Click="openLocalization" FontSize="30"></Button>
-                <Label Content="Ogólna Ocena Otoczenia : 89%" Grid.Row="1" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>
+                <!--<Label Content="Ogólna Ocena Otoczenia : 89%" Grid.Row="1" Foreground="Black" VerticalAlignment="Center" FontSize="30"></Label>-->
             </Grid>
             <Button x:Name="ButtonSpecialActionReturn" Grid.Column="1"                 
                     Background="{x:Null}"
