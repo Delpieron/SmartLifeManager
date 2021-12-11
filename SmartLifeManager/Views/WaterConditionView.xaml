@@ -20,23 +20,20 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="imageBox" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="150"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" ></Label>
-        <Label x:Name="LocationLabel" Content="INFORMACJE O MIEJSCU:" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="Station" Content="Stacja: " Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="River" Content="Rzeka: " Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="WaterStatus" Content="Stan Wody: " Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="StatusDateTime" Content="Data Pomiaru: " Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="WaterTemperature" Content="Temperatura wody: " Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="TemperatureDateTime" Content="Data Pomiaru: " Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="IcePhenomen" Content="Zjawisko Lodowe: " Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="LocationLabel" Content="STACJA POMIAROWA:" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="River" Content="Rzeka: " Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="WaterStatus" Content="Stan Wody: " Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="StatusDateTime" Content="Data Pomiaru: " Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="WaterTemperature" Content="Temperatura wody: " Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="TemperatureDateTime" Content="Data Pomiaru: " Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="IcePhenomen" Content="Zjawisko Lodowe: " Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="DateAndTimeLabel" Content="INFO" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="TemperatureLabel" Content="INFO" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="WindSpeedLabel" Content="INFO" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="WindDirectionLabel" Content="INFO" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="WetLabel" Content="INFO" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="TotalPrecipitationLabel" Content="INFO" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
-        <Label x:Name="PressureLabel" Content="INFO" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" FontSize="20"></Label>
     </Grid>
 </SmartLifeManager:BaseViewControl>
