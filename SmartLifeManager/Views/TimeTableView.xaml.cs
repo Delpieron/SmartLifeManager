@@ -18,12 +18,14 @@ namespace SmartLifeManager.Views
             GotFocus += MainWindow_GotFocus;
         }
 
-        void MainWindow_GotFocus(object sender, RoutedEventArgs e)
+        private void MainWindow_GotFocus(object sender, RoutedEventArgs e)
         {
             FrameworkElement element = (FrameworkElement)e.OriginalSource;
 
             if (txtBox == element || popup == element || element.Parent == popup)
+            {
                 return;
+            }
 
             popup.IsOpen = !string.IsNullOrEmpty(txtBox.Text);
         }
@@ -34,12 +36,12 @@ namespace SmartLifeManager.Views
         }
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            var calendar = sender as Calendar;
+            Calendar calendar = sender as Calendar;
 
             if (calendar.SelectedDate.HasValue)
             {
                 DateTime date = calendar.SelectedDate.Value;
-                this.ToolTip = date.ToShortDateString();
+                ToolTip = date.ToShortDateString();
 
             }
         }

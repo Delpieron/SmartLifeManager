@@ -22,21 +22,22 @@ namespace SmartLifeManager.Views
         }
         public delegate void onReadDelegat(string text, string text2, string text3);
         public event onReadDelegat onSomthingRead;
-        string city = UserSettings.City;
+
+        private readonly string city = UserSettings.City;
         private async Task GetWeatherData()
         {
             imageBox.Content = "\u2601";
             imageBox.Foreground = Brushes.DarkGray;
             try
             {
-                using (var client = new HttpClient())
+                using (HttpClient client = new HttpClient())
                 {
-                    using (var request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/synop/station/" + city.ToLower()))
+                    using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/synop/station/" + city.ToLower()))
                     {
-                        using (var response = await client.SendAsync(request))
+                        using (HttpResponseMessage response = await client.SendAsync(request))
                         {
                             response.EnsureSuccessStatusCode();
-                            var responseBody = await response.Content.ReadAsStringAsync();
+                            string responseBody = await response.Content.ReadAsStringAsync();
                             Weather weather = JsonConvert.DeserializeObject<Weather>(responseBody);
 
                             LocationLabel.Content += "\n" + city;
@@ -60,7 +61,7 @@ namespace SmartLifeManager.Views
         }
         public Colors CalculateAirConditionColors(string pm10)
         {
-            var value = Convert.ToDecimal(pm10);
+            decimal value = Convert.ToDecimal(pm10);
             if (value < 980)
             {
                 return Colors.Orange;

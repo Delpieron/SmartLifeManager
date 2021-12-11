@@ -32,51 +32,51 @@ namespace SmartLifeManager.Views
         {
             try
             {
-                using (var client = new HttpClient())
+                using (HttpClient client = new HttpClient())
                 {
-                    var request_C6H6 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2779");
-                    var request_CO = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2783");
-                    var request_PM10 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2792");
-                    var request_PM25 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2794");
-                    var request_NO2 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2788");
-                    var request_SO2 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2797");
+                    HttpRequestMessage request_C6H6 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2779");
+                    HttpRequestMessage request_CO = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2783");
+                    HttpRequestMessage request_PM10 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2792");
+                    HttpRequestMessage request_PM25 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2794");
+                    HttpRequestMessage request_NO2 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2788");
+                    HttpRequestMessage request_SO2 = new HttpRequestMessage(HttpMethod.Get, "https://api.gios.gov.pl/pjp-api/rest/data/getData/2797");
                     try
                     {
-                        var response_C6H6 = await client.SendAsync(request_C6H6);
-                        var response_CO = await client.SendAsync(request_CO);
-                        var response_PM10 = await client.SendAsync(request_PM10);
-                        var response_PM25 = await client.SendAsync(request_PM25);
-                        var response_NO2 = await client.SendAsync(request_NO2);
-                        var response_SO2 = await client.SendAsync(request_SO2);
+                        HttpResponseMessage response_C6H6 = await client.SendAsync(request_C6H6);
+                        HttpResponseMessage response_CO = await client.SendAsync(request_CO);
+                        HttpResponseMessage response_PM10 = await client.SendAsync(request_PM10);
+                        HttpResponseMessage response_PM25 = await client.SendAsync(request_PM25);
+                        HttpResponseMessage response_NO2 = await client.SendAsync(request_NO2);
+                        HttpResponseMessage response_SO2 = await client.SendAsync(request_SO2);
 
                         try
                         {
                             response_C6H6.EnsureSuccessStatusCode();
-                            var responseBody_C6H6 = await response_C6H6.Content.ReadAsStringAsync();
+                            string responseBody_C6H6 = await response_C6H6.Content.ReadAsStringAsync();
                             response_CO.EnsureSuccessStatusCode();
-                            var responseBody_CO = await response_CO.Content.ReadAsStringAsync();
+                            string responseBody_CO = await response_CO.Content.ReadAsStringAsync();
                             response_PM10.EnsureSuccessStatusCode();
-                            var responseBody_PM10 = await response_PM10.Content.ReadAsStringAsync();
+                            string responseBody_PM10 = await response_PM10.Content.ReadAsStringAsync();
                             response_PM25.EnsureSuccessStatusCode();
-                            var responseBody_PM25 = await response_PM25.Content.ReadAsStringAsync();
+                            string responseBody_PM25 = await response_PM25.Content.ReadAsStringAsync();
                             response_NO2.EnsureSuccessStatusCode();
-                            var responseBody_NO2 = await response_NO2.Content.ReadAsStringAsync();
+                            string responseBody_NO2 = await response_NO2.Content.ReadAsStringAsync();
                             response_SO2.EnsureSuccessStatusCode();
-                            var responseBody_SO2 = await response_SO2.Content.ReadAsStringAsync();
+                            string responseBody_SO2 = await response_SO2.Content.ReadAsStringAsync();
 
 
-                            var air_C6H6 = JsonConvert.DeserializeObject<Air>(responseBody_C6H6);
-                            var air_CO = JsonConvert.DeserializeObject<Air>(responseBody_CO);
-                            var air_PM10 = JsonConvert.DeserializeObject<Air>(responseBody_PM10);
-                            var air_PM25 = JsonConvert.DeserializeObject<Air>(responseBody_PM25);
-                            var air_NO2 = JsonConvert.DeserializeObject<Air>(responseBody_NO2);
-                            var air_SO2 = JsonConvert.DeserializeObject<Air>(responseBody_SO2);
+                            Air air_C6H6 = JsonConvert.DeserializeObject<Air>(responseBody_C6H6);
+                            Air air_CO = JsonConvert.DeserializeObject<Air>(responseBody_CO);
+                            Air air_PM10 = JsonConvert.DeserializeObject<Air>(responseBody_PM10);
+                            Air air_PM25 = JsonConvert.DeserializeObject<Air>(responseBody_PM25);
+                            Air air_NO2 = JsonConvert.DeserializeObject<Air>(responseBody_NO2);
+                            Air air_SO2 = JsonConvert.DeserializeObject<Air>(responseBody_SO2);
 
                             int start = 0;
                             switch (start)
                             {
                                 case 0:
-                                    foreach (var item in air_C6H6.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_C6H6.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -87,7 +87,7 @@ namespace SmartLifeManager.Views
                                     }
                                     goto case 1;
                                 case 1:
-                                    foreach (var item in air_CO.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_CO.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -98,7 +98,7 @@ namespace SmartLifeManager.Views
                                     }
                                     goto case 2;
                                 case 2:
-                                    foreach (var item in air_PM10.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_PM10.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -110,7 +110,7 @@ namespace SmartLifeManager.Views
                                     }
                                     goto case 3;
                                 case 3:
-                                    foreach (var item in air_PM25.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_PM25.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -122,7 +122,7 @@ namespace SmartLifeManager.Views
                                     }
                                     goto case 4;
                                 case 4:
-                                    foreach (var item in air_NO2.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_NO2.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -133,7 +133,7 @@ namespace SmartLifeManager.Views
                                     }
                                     goto case 5;
                                 case 5:
-                                    foreach (var item in air_SO2.Values)
+                                    foreach (System.Collections.Generic.Dictionary<string, string> item in air_SO2.Values)
                                     {
                                         if (item["value"] != null)
                                         {
@@ -179,7 +179,7 @@ namespace SmartLifeManager.Views
         }
         public Colors CalculateAirConditionColors(string pm10)
         {
-            var value = Convert.ToDecimal(pm10);
+            decimal value = Convert.ToDecimal(pm10);
             if (value < 40)
             {
                 return Colors.DarkGreen;
@@ -200,7 +200,7 @@ namespace SmartLifeManager.Views
         }
         public string CalculateAirCondition(string pm10)
         {
-            var value = Convert.ToDecimal(pm10);
+            decimal value = Convert.ToDecimal(pm10);
             if (value < 40)
             {
                 return "Bardzo dobry";

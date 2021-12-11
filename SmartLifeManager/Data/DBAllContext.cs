@@ -6,14 +6,17 @@ using System.IO;
 
 namespace SmartLifeManager.Data
 {
-    class DBAllContext
+    internal class DBAllContext
     {
-        private string connection;
+        private readonly string connection;
         public DBAllContext(string connection)
         {
             this.connection = connection;
             if (!File.Exists(connection))
+            {
                 File.Create(connection);
+            }
+
             CreateStructure("schedule");
 
         }
@@ -37,7 +40,11 @@ namespace SmartLifeManager.Data
             }
             catch (Exception ee)
             {
-                if (transaction != null) transaction.Rollback();
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+
                 System.Diagnostics.Trace.WriteLine("ERROR: SQLiteOpenedDataBase.CreateStructure: " + ee.Message);
             }
             return false;
@@ -83,7 +90,6 @@ namespace SmartLifeManager.Data
         {
             try
             {
-                string odp;
                 SqliteDataReader reader = null;
                 SqliteCommand cmd = new SqliteCommand();
                 SqliteConnection conn = new SqliteConnection(GenerateConnectionString(connection));
@@ -93,7 +99,7 @@ namespace SmartLifeManager.Data
 
                 reader = cmd.ExecuteReader();
                 //cmd.Dispose();
-                var element = new ScheduleModel();
+                ScheduleModel element = new ScheduleModel();
                 if (reader != null && reader.Read())
                 {
                     element.Event = reader.GetString(reader.GetOrdinal("Event"));
@@ -109,7 +115,7 @@ namespace SmartLifeManager.Data
                 return element;
 
             }
-            catch (Exception ee)
+            catch (Exception)
             {
                 //System.Diagnostics.Trace.WriteLine("SQLiteSource.GetElements(ParetnID=" + parentID.ToString() + ": " + ee.Message);
             }

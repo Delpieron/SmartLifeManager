@@ -2,7 +2,7 @@
 
 namespace SmartLifeManager.Models
 {//wydarzenie, data, 
-    class ScheduleModel
+    internal class ScheduleModel
     {
         public int Id { get; set; }
         public string Event { get; set; }

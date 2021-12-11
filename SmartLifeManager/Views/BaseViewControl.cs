@@ -59,7 +59,7 @@ namespace SmartLifeManager.Views
 
         protected void CallChangeViewMainMenu()
         {
-            this.onViewChange(ViewType.WidgetList);
+            onViewChange(ViewType.WidgetList);
         }
         public virtual void prepareToCloseControl() { }
         public virtual void PrepareOnStart() { }

@@ -13,12 +13,14 @@ namespace SmartLifeManager.Views
             GotFocus += MainWindow_GotFocus;
         }
 
-        void MainWindow_GotFocus(object sender, RoutedEventArgs e)
+        private void MainWindow_GotFocus(object sender, RoutedEventArgs e)
         {
             FrameworkElement element = (FrameworkElement)e.OriginalSource;
 
             if (txtBox == element || popup == element || element.Parent == popup)
+            {
                 return;
+            }
 
             popup.IsOpen = !string.IsNullOrEmpty(txtBox.Text);
         }

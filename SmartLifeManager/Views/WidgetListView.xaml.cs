@@ -23,7 +23,7 @@ namespace SmartLifeManager.Views
         public WidgetListView(List<(Style, string, string, string, Widgets)> colors)
         {
             InitializeComponent();
-            foreach (var item in colors)
+            foreach ((Style, string, string, string, Widgets) item in colors)
             {
                 switch (item.Item5)
                 {

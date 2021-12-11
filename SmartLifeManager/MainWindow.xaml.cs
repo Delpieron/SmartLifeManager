@@ -15,20 +15,20 @@ namespace SmartLifeManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AirConditionView air;
-        private WaterConditionView water;
-        private WeatherView weather;
+        private readonly AirConditionView air;
+        private readonly WaterConditionView water;
+        private readonly WeatherView weather;
         public List<(Style, string, string, string, Widgets)> WidgetsStyles = new List<(Style, string, string, string, Widgets)>();
         public List<(Dictionary<Widgets, Colors>, string, string, string)> colors = new List<(Dictionary<Widgets, Colors>, string, string, string)>();
         public MainWindow()
         {
-            this.DataContext = this;
+            DataContext = this;
             InitializeComponent();
-            this.IsEnabled = false;
+            IsEnabled = false;
 
             DBAllContext allContext = new DBAllContext(AppDomain.CurrentDomain.BaseDirectory + "smartLifeDB.db");
-            var a = allContext.AddTreeElement(new ScheduleModel { Event = "event", RainfallSum = "rain", Wet = "wet", WindDirection = "direction", WindSpeed = "speed", Pressure = "pressure", Temperature = "temperature", ExecutionTime = DateTime.Now });
-            var b = allContext.GetElements();
+            long a = allContext.AddTreeElement(new ScheduleModel { Event = "event", RainfallSum = "rain", Wet = "wet", WindDirection = "direction", WindSpeed = "speed", Pressure = "pressure", Temperature = "temperature", ExecutionTime = DateTime.Now });
+            ScheduleModel b = allContext.GetElements();
             ChangeView(ViewType.WidgetList);
             air = new AirConditionView();
             air.onSomthingRead += Air_onSomthingRead;
@@ -40,39 +40,45 @@ namespace SmartLifeManager
 
         private void Weather_onSomthingRead(string text, string text2, string text3)
         {
-            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
-            a.Add(Widgets.Weather, weather.CalculateAirConditionColors(text));
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>
+            {
+                { Widgets.Weather, weather.CalculateAirConditionColors(text) }
+            };
             (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
             colors.Add(c);
             if (colors.Count == 3)
             {
-                this.IsEnabled = true;
+                IsEnabled = true;
                 SetStyle(colors);
             }
         }
 
         private void Water_onSomthingRead(string text, string text2, string text3)
         {
-            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
-            a.Add(Widgets.Water, water.CalculateAirConditionColors(text));
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>
+            {
+                { Widgets.Water, water.CalculateAirConditionColors(text) }
+            };
             (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
             colors.Add(c);
             if (colors.Count == 3)
             {
-                this.IsEnabled = true;
+                IsEnabled = true;
                 SetStyle(colors);
             }
         }
 
         private void Air_onSomthingRead(string text, string text2, string text3)
         {
-            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>();
-            a.Add(Widgets.Air, air.CalculateAirConditionColors(text));
+            Dictionary<Widgets, Colors> a = new Dictionary<Widgets, Colors>
+            {
+                { Widgets.Air, air.CalculateAirConditionColors(text) }
+            };
             (Dictionary<Widgets, Colors>, string, string, string) c = (a, text, text2, text3);
             colors.Add(c);
             if (colors.Count == 3)
             {
-                this.IsEnabled = true;
+                IsEnabled = true;
                 SetStyle(colors);
             }
         }
@@ -81,7 +87,7 @@ namespace SmartLifeManager
 
 
         #region ViewManager
-        BaseViewControl currentView = null;
+        private BaseViewControl currentView = null;
         public void ChangeView(ViewType view, bool testPointCreated = false)
         {
             if (currentView != null)
@@ -147,9 +153,9 @@ namespace SmartLifeManager
         private void SetStyle(List<(Dictionary<Widgets, Colors>, string, string, string)> colors)
         {
 
-            foreach (var item in colors)
+            foreach ((Dictionary<Widgets, Colors>, string, string, string) item in colors)
             {
-                foreach (var item2 in item.Item1)
+                foreach (KeyValuePair<Widgets, Colors> item2 in item.Item1)
                 {
                     switch (item2.Value)
                     {

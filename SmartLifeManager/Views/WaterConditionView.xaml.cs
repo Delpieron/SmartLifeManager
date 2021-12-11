@@ -29,17 +29,17 @@ namespace SmartLifeManager.Views
         {
             try
             {
-                using (var client = new HttpClient())
+                using (HttpClient client = new HttpClient())
                 {
-                    using (var request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/hydro/"))
+                    using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/hydro/"))
                     {
-                        using (var response = await client.SendAsync(request))
+                        using (HttpResponseMessage response = await client.SendAsync(request))
                         {
 
                             response.EnsureSuccessStatusCode();
-                            var responseBody = await response.Content.ReadAsStringAsync();
+                            string responseBody = await response.Content.ReadAsStringAsync();
                             List<Water> water = JsonConvert.DeserializeObject<List<Water>>(responseBody);
-                            var selectedWater = water.FirstOrDefault(x => x.StationId == "150190340");
+                            Water selectedWater = water.FirstOrDefault(x => x.StationId == "150190340");
 
                             LocationLabel.Content += "\n" + selectedWater.Station;
                             RiverLabel.Content = selectedWater.River;
@@ -60,7 +60,7 @@ namespace SmartLifeManager.Views
         }
         public Colors CalculateAirConditionColors(string pm10)
         {
-            var value = Convert.ToDecimal(pm10);
+            decimal value = Convert.ToDecimal(pm10);
             if (value > 270)
             {
                 return Colors.Red;
@@ -78,7 +78,9 @@ namespace SmartLifeManager.Views
                 return Colors.DarkGreen;
             }
             else
+            {
                 return Colors.LightGreen;
+            }
         }
     }
 }
