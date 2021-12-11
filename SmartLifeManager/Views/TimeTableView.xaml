@@ -8,6 +8,28 @@
       mc:Ignorable="d" >
 
     <Grid>
+        <Calendar Height="170" HorizontalAlignment="Left" Margin="58,32,0,0" x:Name="calendar"
+   VerticalAlignment="Top" Width="180" SelectedDatesChanged = "Calendar_SelectedDatesChanged" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+
+
+            <Popup x:Name="popup"  PlacementTarget="{Binding ElementName=btn}" Placement="Bottom"  Width="200" Height="100" Margin="0,20,0,0">
+                <Border BorderBrush="Black" BorderThickness="2" Background="AliceBlue">
+                    <TextBox x:Name="txtBox" VerticalAlignment="Center" Margin="15,0,15,0"/>
+                </Border>
+            </Popup>
+            
+            <TextBox x:Name="EventName" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
+
+            <DatePicker x:Name="EventDate" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+
+        </Grid>
         
     </Grid>
+    
 </SmartLifeManager:BaseViewControl>

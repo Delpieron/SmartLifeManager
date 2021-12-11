@@ -1,15 +1,13 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace SmartLifeManager.Views
 {
     /// <summary>
-    /// Interaction logic for TimeTableView.xaml
+    /// Interaction logic for AddNewCalendarEventWindow.xaml
     /// </summary>
-    public partial class TimeTableView : BaseViewControl
+    public partial class AddNewCalendarEventWindow : Window
     {
-        public TimeTableView()
+        public AddNewCalendarEventWindow()
         {
             InitializeComponent();
             GotFocus += MainWindow_GotFocus;
@@ -29,17 +27,5 @@ namespace SmartLifeManager.Views
         {
             popup.IsOpen = true;
         }
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var calendar = sender as Calendar;
-
-            if (calendar.SelectedDate.HasValue)
-            {
-                DateTime date = calendar.SelectedDate.Value;
-                this.ToolTip = date.ToShortDateString();
-
-            }
-        }
-
     }
 }

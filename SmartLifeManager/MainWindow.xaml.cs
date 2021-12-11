@@ -25,7 +25,7 @@ namespace SmartLifeManager
             DBAllContext allContext = new DBAllContext(AppDomain.CurrentDomain.BaseDirectory + "smartLifeDB.db");
             var a = allContext.AddTreeElement(new ScheduleModel { Event = "event", RainfallSum = "rain", Wet = "wet", WindDirection = "direction", WindSpeed = "speed", Pressure = "pressure", Temperature = "temperature", ExecutionTime = DateTime.Now });
             var b = allContext.GetElements();
-            ChangeView(ViewType.WidgetList);
+            ChangeView(ViewType.TimeTable);
         }
 
         #region ViewManager
