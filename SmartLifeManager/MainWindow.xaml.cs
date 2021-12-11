@@ -1,6 +1,7 @@
 ﻿using SmartLifeManager.Data;
 using SmartLifeManager.Models;
 using SmartLifeManager.Views;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
