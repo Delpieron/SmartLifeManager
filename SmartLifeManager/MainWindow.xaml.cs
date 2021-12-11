@@ -21,7 +21,7 @@ namespace SmartLifeManager
             DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
             allContext.CreateStructure("schedule");
 
-        }
+        
             ChangeView(ViewType.WidgetList);
         }
 
