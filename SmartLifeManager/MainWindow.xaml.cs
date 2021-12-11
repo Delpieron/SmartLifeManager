@@ -1,4 +1,5 @@
 ﻿using SmartLifeManager.Data;
+using SmartLifeManager.Models;
 using SmartLifeManager.Views;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,9 +19,9 @@ namespace SmartLifeManager
             this.DataContext = this;
             InitializeComponent();
 
-            DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
-            allContext.CreateStructure("schedule");
-
+            DBAllContext allContext = new DBAllContext(AppDomain.CurrentDomain.BaseDirectory + "smartLifeDB.db");
+            var a = allContext.AddTreeElement(new ScheduleModel { Event = "event", RainfallSum = "rain", Wet = "wet", WindDirection = "direction", WindSpeed = "speed", Pressure = "pressure", Temperature = "temperature", ExecutionTime = DateTime.Now });
+            var b = allContext.GetElements();
             ChangeView(ViewType.WidgetList);
 
             SetStyle(new List<Colors> { Colors.Yellow, Colors.Orange, Colors.Red });

@@ -3,6 +3,7 @@ using SmartLifeManager.Data;
 using SmartLifeManager.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace SmartLifeManager.Views
@@ -23,36 +24,35 @@ namespace SmartLifeManager.Views
         {
             imageBox.Content = "\u2601";
             imageBox.Foreground = Brushes.DarkGray;
-            using (var client = new HttpClient())
+            try
             {
-                using (var request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/synop/station/" + city.ToLower()))
+                using (var client = new HttpClient())
                 {
-                    using (var response = await client.SendAsync(request))
+                    using (var request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/synop/station/" + city.ToLower()))
                     {
-                        response.EnsureSuccessStatusCode();
-                        var responseBody = await response.Content.ReadAsStringAsync();
-                        Weather weather = JsonConvert.DeserializeObject<Weather>(responseBody);
+                        using (var response = await client.SendAsync(request))
+                        {
+                            response.EnsureSuccessStatusCode();
+                            var responseBody = await response.Content.ReadAsStringAsync();
+                            Weather weather = JsonConvert.DeserializeObject<Weather>(responseBody);
 
-                        LocationLabel.Content += "\n" + city;
-                        DateAndTimeLabel.Content = weather.Date + "  " + weather.Time + ":00";
-                        TemperatureLabel.Content = weather.Temperature + " °C";
-                        WindSpeedLabel.Content = weather.WindSpeed + " m/s";
-                        WindDirectionLabel.Content = weather.WindDirection;
-                        WetLabel.Content = weather.Wet + " g/m³";
-                        TotalPrecipitationLabel.Content = weather.TotalPrecipitation + " mm/m²";
-                        PressureLabel.Content = weather.Pressure + " hPa";
+                            LocationLabel.Content += "\n" + city;
+                            DateAndTimeLabel.Content = weather.Date + "  " + weather.Time + ":00";
+                            TemperatureLabel.Content = weather.Temperature + " °C";
+                            WindSpeedLabel.Content = weather.WindSpeed + " m/s";
+                            WindDirectionLabel.Content = weather.WindDirection;
+                            WetLabel.Content = weather.Wet + " g/m³";
+                            TotalPrecipitationLabel.Content = weather.TotalPrecipitation + " mm/m²";
+                            PressureLabel.Content = weather.Pressure + " hPa";
+                        }
                     }
                 }
             }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Connection error");
+            }
 
-
-
-        }
-
-        private void test(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            imageBox.Content = "\u2600";
-            imageBox.Foreground = Brushes.Yellow;
         }
     }
 }

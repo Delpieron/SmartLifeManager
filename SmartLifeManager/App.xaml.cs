@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace SmartLifeManager
 {
@@ -9,7 +8,6 @@ namespace SmartLifeManager
     /// </summary>
     public partial class App : Application
     {
-        private readonly IServiceProvider serviceProvider;
         public App()
         {
 
