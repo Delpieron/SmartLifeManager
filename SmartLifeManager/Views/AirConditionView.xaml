@@ -12,6 +12,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -35,5 +36,12 @@
         <Label x:Name="PM25Label" Content="INFO" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="NO2Label" Content="INFO" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
         <Label x:Name="SO2Label" Content="INFO" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="BenzenDate" Content="INFO" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="CODate" Content="INFO" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="PM10Date" Content="INFO" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="PM25Date" Content="INFO" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="NO2Date" Content="INFO" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="SO2Date" Content="INFO" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" FontSize="20"></Label>
+
     </Grid>
 </SmartLifeManager:BaseViewControl>
