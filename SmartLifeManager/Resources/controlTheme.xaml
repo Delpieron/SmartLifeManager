@@ -324,4 +324,34 @@
     <Style TargetType="Button" x:Key="TabButtonLast" BasedOn="{StaticResource TabButton}">
         <Setter Property="Border.CornerRadius" Value="0,0,0,3" />
     </Style>
+    <Style x:Key="StyleCalanderDayButton" TargetType="{x:Type CalendarDayButton}">
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="Width" Value="40"></Setter>
+    </Style>
+    <Style x:Key="StyleCalanderButton" TargetType="{x:Type CalendarButton}">
+        <Setter Property="Height" Value="60"></Setter>
+        <Setter Property="Width" Value="60"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style x:Key="StyleCalendar" TargetType="{x:Type Calendar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Calendar}">
+                    <Viewbox Height="350" Width="350" >
+                        <CalendarItem x:Name="PART_CalendarItem" 
+                            Background="Gray"
+                            BorderBrush="{x:Null}"
+                            BorderThickness="0" FontStretch="Expanded"  >
+                        </CalendarItem>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CalendarDayButtonStyle"  Value="{StaticResource StyleCalanderDayButton}"></Setter>
+        <Setter Property="CalendarButtonStyle"  Value="{StaticResource StyleCalanderButton}"></Setter>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Gray">
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SmartLifeManager.Views
 {
@@ -12,6 +13,8 @@ namespace SmartLifeManager.Views
         public TimeTableView()
         {
             InitializeComponent();
+            imageBox.Content = "\u2618";
+            imageBox.Foreground = Brushes.DarkGray;
             GotFocus += MainWindow_GotFocus;
         }
 
