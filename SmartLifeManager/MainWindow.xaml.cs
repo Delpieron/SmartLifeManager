@@ -17,11 +17,11 @@ namespace SmartLifeManager
         {
             InitializeComponent();
             //File.Create(@"D:\kupa.sqlite");
+            /*
+                        DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
+                        allContext.CreateStructure("schedule");*/
 
-            DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
-            allContext.CreateStructure("schedule");
 
-        }
             ChangeView(ViewType.WidgetList);
         }
 
