@@ -1,4 +1,6 @@
-﻿namespace SmartLifeManager.Views
+﻿using System.Windows.Media;
+
+namespace SmartLifeManager.Views
 {
     /// <summary>
     /// Interaction logic for AirConditionView.xaml
@@ -8,6 +10,9 @@
         public AirConditionView()
         {
             InitializeComponent();
+
+            imageBox.Content = "\u263A";
+            imageBox.Foreground = Brushes.DarkGray;
         }
     }
 }
