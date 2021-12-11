@@ -2,8 +2,6 @@
 using SmartLifeManager.Data;
 using SmartLifeManager.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -60,6 +58,7 @@ namespace SmartLifeManager.Views
                             var responseBody_NO2 = await response_NO2.Content.ReadAsStringAsync();
                             response_SO2.EnsureSuccessStatusCode();
                             var responseBody_SO2 = await response_SO2.Content.ReadAsStringAsync();
+
 
                             var air_C6H6 = JsonConvert.DeserializeObject<Air>(responseBody_C6H6);
                             var air_CO = JsonConvert.DeserializeObject<Air>(responseBody_CO);
@@ -138,40 +137,55 @@ namespace SmartLifeManager.Views
                                     }
                                     break;
                             }
-
-
-
-
+                            LocationLabel.Content += "\n Krakow, ul. Bulwarowa";
                         }
-                        catch (System.Exception e)
-                        {
 
-                        }
                         finally
                         {
-
+                            response_C6H6.Dispose();
+                            response_CO.Dispose();
+                            response_PM10.Dispose();
+                            response_PM25.Dispose();
+                            response_NO2.Dispose();
+                            response_SO2.Dispose();
                         }
                     }
                     finally
                     {
-
-
+                        request_C6H6.Dispose();
+                        request_CO.Dispose();
+                        request_PM10.Dispose();
+                        request_PM25.Dispose();
+                        request_NO2.Dispose();
+                        request_SO2.Dispose();
                     }
-
-                    //Water water = JsonConvert.DeserializeObject<Water>(responseBody);
-                    //var selectedWater = water.FirstOrDefault(x => x.StationId == "150190340");
-
-
-
-
-
-
                 }
             }
             catch (System.Exception)
             {
                 MessageBox.Show("Connection error");
             }
+        }
+        private string CalculateAirCondition(string pm10)
+        {
+            var value = Convert.ToInt32(pm10);
+            if (value < 40)
+            {
+                return "Bardzo dobry";
+            }
+            else if (value < 70)
+            {
+                return "Umiarkowany";
+            }
+            else if (value < 100)
+            {
+                return "Dostateczny";
+            }
+            else if (value < 140)
+            {
+                return "Zły";
+            }
+            return "Bardzo zły";
         }
     }
 }
