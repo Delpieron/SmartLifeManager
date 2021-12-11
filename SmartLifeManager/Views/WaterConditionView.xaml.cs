@@ -56,7 +56,6 @@ namespace SmartLifeManager.Views
             {
                 MessageBox.Show("Connection error");
             }
-
         }
         public Colors CalculateAirConditionColors(string pm10)
         {

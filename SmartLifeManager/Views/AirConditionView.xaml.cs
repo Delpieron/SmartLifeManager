@@ -102,9 +102,9 @@ namespace SmartLifeManager.Views
                                     {
                                         if (item["value"] != null)
                                         {
-                                            PM10Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
-                                            PM10Date.Content = item["date"];
                                             pm10 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
+                                            PM10Label.Content = pm10 + UserSettings.Content;
+                                            PM10Date.Content = item["date"];
                                             goto case 3;
                                         }
                                     }
@@ -114,9 +114,9 @@ namespace SmartLifeManager.Views
                                     {
                                         if (item["value"] != null)
                                         {
-                                            PM25Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
-                                            PM25Date.Content = item["date"];
                                             pm25 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
+                                            PM25Label.Content = pm25 + UserSettings.Content;
+                                            PM25Date.Content = item["date"];
                                             goto case 4;
                                         }
                                     }
@@ -137,16 +137,15 @@ namespace SmartLifeManager.Views
                                     {
                                         if (item["value"] != null)
                                         {
-                                            SO2Label.Content = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2) + UserSettings.Content;
-                                            SO2Date.Content = item["date"];
                                             so2 = Math.Round(Convert.ToDecimal(item["value"].Replace(".", ",")), 2).ToString();
+                                            SO2Label.Content = so2 + UserSettings.Content;
+                                            SO2Date.Content = item["date"];
                                             break;
                                         }
                                     }
                                     break;
                             }
                             LocationLabel.Content += "\n Krakow, ul. Bulwarowa";
-
                         }
 
                         finally
