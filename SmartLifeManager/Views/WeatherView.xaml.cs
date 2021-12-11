@@ -37,13 +37,13 @@ namespace SmartLifeManager.Views
                             Weather weather = JsonConvert.DeserializeObject<Weather>(responseBody);
 
                             LocationLabel.Content += "\n" + city;
-                            DateAndTimeLabel.Content = weather.Date + "  " + weather.Time + ":00";
-                            TemperatureLabel.Content = weather.Temperature + " °C";
-                            WindSpeedLabel.Content = weather.WindSpeed + " m/s";
+                            DateAndTimeLabel.Content = weather.Date + " " + weather.Time + ":00";
+                            TemperatureLabel.Content = weather.Temperature + " " + UserSettings.TemperatureUnit;
+                            WindSpeedLabel.Content = weather.WindSpeed + UserSettings.Speed;
                             WindDirectionLabel.Content = weather.WindDirection;
                             WetLabel.Content = weather.Wet + " g/m³";
                             TotalPrecipitationLabel.Content = weather.TotalPrecipitation + " mm/m²";
-                            PressureLabel.Content = weather.Pressure + " hPa";
+                            PressureLabel.Content = weather.Pressure + UserSettings.Pressure;
                         }
                     }
                 }
