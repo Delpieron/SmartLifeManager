@@ -16,7 +16,25 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda" Content="Pogoda" FontSize="30" Grid.Column="0" Grid.Row="0"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda" FontSize="25" Grid.Column="0" Grid.Row="0" FontFamily="Kartika">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Temperatura :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="Ciśnienie :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="Wilgotność :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="10 °C" Grid.Row="0" Grid.Column="1"></Label>
+                <Label Content="970 hPa" Grid.Row="1" Grid.Column="1"></Label>
+                <Label Content="99 g/m³" Grid.Row="2" Grid.Column="1"></Label>
+            </Grid>
+        </Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="woda" Content="Woda" FontSize="30" Grid.Column="1" Grid.Row="0"></Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Content="Powietrze" FontSize="30" Grid.Column="2" Grid.Row="0"></Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="harmonogram" Content="Harmonogram" FontSize="30" Grid.Column="0" Grid.Row="1"></Button>

@@ -1,4 +1,5 @@
-﻿using SmartLifeManager.Views;
+﻿using SmartLifeManager.Data;
+using SmartLifeManager.Views;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,6 @@ namespace SmartLifeManager
             DBAllContext allContext = new DBAllContext("D:\\RatMonDB.RM2");
             allContext.CreateStructure("schedule");
 
-        
             ChangeView(ViewType.WidgetList);
         }
 
