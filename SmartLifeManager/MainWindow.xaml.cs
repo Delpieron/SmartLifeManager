@@ -1,4 +1,5 @@
-﻿using SmartLifeManager.Views;
+﻿using SmartLifeManager.Data;
+using SmartLifeManager.Views;
 using System;
 using System.Windows;
 using System.Windows.Controls;
