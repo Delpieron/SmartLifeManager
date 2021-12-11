@@ -22,28 +22,28 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="imageBox" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="150"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" ></Label>
-        <Label x:Name="LocationLabel" Content="PODŁĄCZONE URZĄDZENIA" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20"></Label>
+        <Label x:Name="LocationLabel" Content="PODŁĄCZONE URZĄDZENIA" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20" Foreground="#e5e5e5"></Label>
         <StackPanel Grid.Column="1" Grid.RowSpan="6">
-            <Label Content="Czujnik Światła" FontSize="30"></Label>
-            <Label Content="Falownik" FontSize="30"></Label>
-            <Label Content="IRobot" FontSize="30"></Label>
-            <Label Content="Smart Żarówka" FontSize="30"></Label>
-            <Label Content="Smart Głośnik" FontSize="30"></Label>
-            <Label Content="Rolety Okienne" FontSize="30"></Label>
-            <Label Content="Klimatyzator" FontSize="30"></Label>
-            <Label Content="Wentylacja" FontSize="30"></Label>
-            <Label Content="BULBULATOR" FontSize="30"></Label>
+            <Label Content="Czujnik Światła" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Falownik" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="IRobot" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Smart Żarówka" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Smart Głośnik" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Rolety Okienne" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Klimatyzator" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Wentylacja" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="BULBULATOR" FontSize="30" Foreground="#e5e5e5"></Label>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.RowSpan="6">
-            <Label Content="Xiaomi Light Sensor" FontSize="30"></Label>
-            <Label Content="Falownik 0,75kW 1-fazowy" FontSize="30"></Label>
-            <Label Content="Roomba" FontSize="30"></Label>
-            <Label Content="XIAOMI Yeelight Mi Motion" FontSize="30"></Label>
-            <Label Content="Amazon Alexa" FontSize="30"></Label>
-            <Label Content="Roletex" FontSize="30"></Label>
-            <Label Content="Daikin FTXJ25MS" FontSize="30"></Label>
-            <Label Content="EMAX 100 /170 EBERG" FontSize="30"></Label>
-            <Label Content="Co to jest???" FontSize="30"></Label>
+            <Label Content="Xiaomi Light Sensor" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Falownik 0,75kW 1-fazowy" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Roomba" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="XIAOMI Yeelight Mi Motion" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Amazon Alexa" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Roletex" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Daikin FTXJ25MS" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="EMAX 100 /170 EBERG" FontSize="30" Foreground="#e5e5e5"></Label>
+            <Label Content="Co to jest???" FontSize="30" Foreground="#e5e5e5"></Label>
         </StackPanel>
     </Grid>
 </SmartLifeManager:BaseViewControl>
