@@ -14,7 +14,20 @@ namespace SmartLifeManager.Views
 
         public bool AcceptBackButton = false;
 
-
+        public enum Colors
+        {
+            DarkGreen,
+            LightGreen,
+            Yellow,
+            Orange,
+            Red
+        }
+        public enum Widgets
+        {
+            Weather,
+            Water,
+            Air
+        }
         public enum ViewType
         {
             Empty,
@@ -25,6 +38,7 @@ namespace SmartLifeManager.Views
             Settings,
             PlaceHolder,
             WidgetList,
+            ConnectedDevices
         }
         public event EventHandler<ViewTypeEventArgs> onViewChangeHandler;
 

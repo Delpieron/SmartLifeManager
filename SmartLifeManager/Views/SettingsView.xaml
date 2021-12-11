@@ -7,7 +7,30 @@
       xmlns:local="clr-namespace:SmartLifeManager.Views"
       mc:Ignorable="d" >
 
-    <Grid>
-        
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="imageBox" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="150"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" ></Label>
+        <Label x:Name="LocationLabel" Content="USTAWIENIA" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"  VerticalAlignment="Center" FontSize="20"></Label>
+        <Label Content="Język" FontSize="30" Grid.Column="1" Grid.Row="0"></Label>
+        <Label Content="Miasto" FontSize="30" Grid.Column="1" Grid.Row="1"></Label>
+        <Label Content="Jednostka Temperatury" FontSize="30" Grid.Column="1" Grid.Row="2"></Label>
+        <Label Content="Jednostka Ciśnienia" FontSize="30" Grid.Column="1" Grid.Row="3"></Label>
+        <Label Content="Jednosta Prędkości" FontSize="30" Grid.Column="1" Grid.Row="4"></Label>
+        <Label Content="Polski" FontSize="30" Grid.Column="2" Grid.Row="0"></Label>
+        <Label Content="Kraków" FontSize="30" Grid.Column="2" Grid.Row="1"></Label>
+        <Label Content="°C" FontSize="30" Grid.Column="2" Grid.Row="2"></Label>
+        <Label Content="hPa" FontSize="30" Grid.Column="2" Grid.Row="3"></Label>
+        <Label Content="m/s" FontSize="30" Grid.Column="2" Grid.Row="4"></Label>
     </Grid>
 </SmartLifeManager:BaseViewControl>
