@@ -1,4 +1,6 @@
-﻿namespace SmartLifeManager.Views
+﻿using System.Windows.Media;
+
+namespace SmartLifeManager.Views
 {
     /// <summary>
     /// Interaction logic for WaterConditionView.xaml
@@ -8,6 +10,8 @@
         public WaterConditionView()
         {
             InitializeComponent();
+            imageBox.Content = "\u2693";
+            imageBox.Foreground = Brushes.DarkGray;
         }
     }
 }

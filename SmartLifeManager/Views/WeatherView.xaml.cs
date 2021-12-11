@@ -21,6 +21,8 @@ namespace SmartLifeManager.Views
         string city = UserSettings.City;
         private async Task GetWeatherData()
         {
+            imageBox.Content = "\u2601";
+            imageBox.Foreground = Brushes.DarkGray;
             using (var client = new HttpClient())
             {
                 using (var request = new HttpRequestMessage(HttpMethod.Get, "https://danepubliczne.imgw.pl/api/data/synop/station/" + city.ToLower()))
@@ -44,8 +46,7 @@ namespace SmartLifeManager.Views
             }
 
 
-            imageBox.Content = "\u2601";
-            imageBox.Foreground = Brushes.DarkGray;
+
         }
 
         private void test(object sender, System.Windows.Input.MouseButtonEventArgs e)
