@@ -2,6 +2,8 @@
 using SmartLifeManager.Models;
 using SmartLifeManager.Views;
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,6 +19,7 @@ namespace SmartLifeManager
     {
         public MainWindow()
         {
+            this.DataContext = this;
             InitializeComponent();
 
             DBAllContext allContext = new DBAllContext(AppDomain.CurrentDomain.BaseDirectory + "smartLifeDB.db");
@@ -95,6 +98,36 @@ namespace SmartLifeManager
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ChangeView(ViewType.WidgetList);
+        }
+
+        private bool _hasValidURI;
+
+        public bool HasValidURI
+        {
+            get { return _hasValidURI; }
+            set { _hasValidURI = value; OnPropertyChanged("HasValidURI"); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(name));
+        }
+
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Uri uri;
+            HasValidURI = Uri.TryCreate((sender as TextBox).Text, UriKind.Absolute, out uri);
+        }
+
+
+        private void openLocalization(object sender, RoutedEventArgs e)
+        {
+            string url = "https://www.google.pl/maps/place/Wy%C5%BCsza+Szko%C5%82a+Ekonomii+i+Informatyki+w+Krakowie/@50.0681723,19.9389599,17z/data=!3m1!4b1!4m5!3m4!1s0x47165b053d076b5d:0x3c2561cb07bc3dd2!8m2!3d50.0681689!4d19.9411486";
+            Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
         #endregion
 

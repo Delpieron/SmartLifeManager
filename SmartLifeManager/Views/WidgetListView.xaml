@@ -16,7 +16,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda" FontSize="25" Grid.Column="0" Grid.Row="0" FontFamily="Kartika">
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="pogoda"  Grid.Column="0" Grid.Row="0" FontSize="25" FontFamily="Kartika">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -35,10 +35,46 @@
                 <Label Content="99 g/m³" Grid.Row="2" Grid.Column="1"></Label>
             </Grid>
         </Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="woda" Content="Woda" FontSize="30" Grid.Column="1" Grid.Row="0"></Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Content="Powietrze" FontSize="30" Grid.Column="2" Grid.Row="0"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="woda"  Grid.Column="1" Grid.Row="0" FontSize="25" FontFamily="Kartika">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Stacja :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="Temp. Wody :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="Stan Wody :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="Kraków Bielany" Grid.Row="0" Grid.Column="1"></Label>
+                <Label Content="10 °C" Grid.Row="1" Grid.Column="1"></Label>
+                <Label Content="157" Grid.Row="2" Grid.Column="1"></Label>
+            </Grid>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Click="powietrze" Grid.Column="2" Grid.Row="0" FontSize="25" FontFamily="Kartika">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="PM10 :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="PM2,5 :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="SO2 :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"></Label>
+                <Label Content="80,1 µg/m3" Grid.Row="0" Grid.Column="1"></Label>
+                <Label Content="89 µg/m3" Grid.Row="1" Grid.Column="1"></Label>
+                <Label Content="2 µg/m3" Grid.Row="2" Grid.Column="1"></Label>
+            </Grid>
+        </Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="harmonogram" Content="Harmonogram" FontSize="30" Grid.Column="0" Grid.Row="1"></Button>
         <Button Style="{StaticResource ResourceKey=TabButton}" Click="ustawienia" Content="Ustawienia" FontSize="30"  Grid.Column="1" Grid.Row="1"></Button>
-        <Button Style="{StaticResource ResourceKey=TabButton}" Content="PlaceHolder" FontSize="30"  Grid.Column="2" Grid.Row="1"></Button>
+        <Button Style="{StaticResource ResourceKey=TabButton}" Content="Podłączone urządzenia" FontSize="30"  Grid.Column="2" Grid.Row="1"></Button>
     </Grid>
 </SmartLifeManager:BaseViewControl>
